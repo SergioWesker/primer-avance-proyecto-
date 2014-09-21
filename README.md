@@ -21,7 +21,7 @@ El taller tiene ubicaciones definidas por el administrador tales como taller, ho
 
 Integrantes del equipo
 =======================
-Sergio Enrique Leon Muñoz, Karina Alejandra Perez Carrillo y Kevin Arturo Valecia Castañeda
+Sergio Enrique Leon Muñoz, Karina Alejandra Perez Carrillo y Kevin Arturo Valencia Castañeda
 
 Liga para el demo del avance
 =======================
