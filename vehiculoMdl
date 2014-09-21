@@ -1,0 +1,67 @@
+<?php
+	class vehiculoMdl
+	{
+		
+		
+		public function alta($VIN,$Marca,$Modelo,$Color,$Caracteristicas,$Kilometraje,$Combustible,$Golpes,$Ubicacion,$vehiculo)
+		{
+		   
+			for ($i=1; $i <= 1; $i++) 
+			{
+				if(!is_numeric($_POST["VIN$i"]))
+				{
+					$_POST["VIN$i"] = "Error";
+				}
+				$regex = "/[\d\w\s]+/";
+				$_POST["Marca$i"] = preg_match($regex, $_POST["Marca$i"]) ? $_POST["Marca$i"] : "Error";
+				$_POST["Modelo$i"] = preg_match($regex, $_POST["Modelo$i"]) ? $_POST["Modelo$i"] : "Error";
+				$_POST["Color$i"] = preg_match($regex, $_POST["Color$i"]) ? $_POST["Color$i"] : "Error";
+				$_POST["Caracteristicas$i"] = preg_match($regex, $_POST["Caracteristicas$i"]) ? $_POST["Caracteristicas$i"] : "Error";
+				if(!is_numeric($_POST["Kilometraje$i"]))
+				{
+					$_POST["Kilometraje$i"] = "Error";
+				}
+				if(!is_float($_POST["Combustible$i"]))
+				{
+					$_POST["Combustible$i"] = "Error";
+				}
+				$_POST["Golpes$i"] = preg_match($regex, $_POST["Golpes$i"]) ? $_POST["Golpes$i"] : "Error";
+				$_POST["Ubicacion$i"] = preg_match($regex, $_POST["Ubicacion$i"]) ? $_POST["Ubicacion$i"] : "Error";
+
+
+				$vehiculo[$i] = array("VIN"=>$_POST["VIN$i"], "Marca"=>$_POST["Marca$i"], "Modelo"=>$_POST["Modelo$i"], "Color"=>$_POST["Color$i"], "Caracteristicas"=>$_POST["Caracteristicas$i"], "Kilometraje"=>$_POST["Kilometraje$i"], "Combustible"=>$_POST["Combustible$i"], "Golpes"=>$_POST["Golpes$i"], "Ubicacion"=>$_POST["Ubicacion$i"]);
+			}
+			
+			return $vehiculo;
+		}
+		
+		public function modificar($NVIN,$NUbicacion,$vehiculo)
+		{
+			 
+			for ($i=1; $i <= 9; $i++) 
+			{
+			  if($NVIN == $vehiculo[$i]["VIN"])
+			  {
+				  $vehiculo[$i] = array("VIN"=>[$NVIN], "Ubicacion"=>[$NUbicacion]); 
+			  }
+			}
+			
+			return $vehiculo;
+		}
+		
+		public function baja($VIN,$vehiculo)
+		{
+			 
+			for ($i=1; $i <= 9; $i++) 
+			{
+			  if($VIN == $vehiculo[$i]["VIN"])
+			  {
+			  	$vehiculo[$i] = array("VIN"=>"", "Marca"=>"", "Modelo"=>"", "Color"=>"", "Caracteristicas"=>"", "Kilometraje"=>"", "Combustible"=>"", "Golpes"=>"", "Ubicacion"=>""); 
+			  }
+			}
+			
+			return $vehiculo;
+		}
+		
+	}
+?>
